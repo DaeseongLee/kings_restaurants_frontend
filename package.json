@@ -18,6 +18,7 @@
     "@types/react-star-rating-component": "^1.4.0",
     "apollo": "^2.33.2",
     "autoprefixer": "^10.2.5",
+    "cross-env": "^7.0.3",
     "graphql": "^15.5.0",
     "moment": "^2.29.1",
     "postcss": "^8.2.15",
@@ -35,10 +36,12 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "tailwind:probuild": "cross-env NODE_ENV=production npm run tailwind:build",
     "tailwind:build": "tailwind build ./src/styles/tailwind.css -o ./src/styles/styles.css",
     "start": "npm run tailwind:build & react-scripts start",
     "apollo:codegen": "rimraf src/__generated__ && apollo client:codegen src/__generated__ --target=typescript --outputFlat",
     "build": "react-scripts build",
+    "prebuild": "npm run tailwind:prodbuild",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
